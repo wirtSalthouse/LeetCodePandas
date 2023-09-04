@@ -1,6 +1,8 @@
 import unittest
 import pandas as pd
-from bigCountries import big_countries
+from BigCountries.bigCountries import big_countries
+from TestUtils.testUtils import is_equal_dataframes
+
 
 def df_from_schema_and_data(schema, data):
     return pd.DataFrame(data, columns=schema)
@@ -30,7 +32,7 @@ class BigCountriesTest(unittest.TestCase):
         result = big_countries(input_df)
 
         desired_result = output_dataframe(desired_output_data)
-        self.assert_equal_dataframes(result, desired_result)
+        self.assertEqual(is_equal_dataframes(result, desired_result), True)
 
     def test_case_2(self):
         input_data = [['Afghanistan', 'Asia', 652230, 25500100],
@@ -45,7 +47,7 @@ class BigCountriesTest(unittest.TestCase):
         result = big_countries(input_df)
 
         desired_result = output_dataframe(desired_output_data)
-        self.assert_equal_dataframes(result, desired_result)
+        self.assertEqual(is_equal_dataframes(result, desired_result), True)
 
     def test_single_entry_different_data(self):
         input_data = [['Latveria', 'Europe', 600, 1000000],
@@ -59,7 +61,7 @@ class BigCountriesTest(unittest.TestCase):
 
         result = big_countries(input_df)
 
-        self.assert_equal_dataframes(result, desired_df)
+        self.assertEqual(is_equal_dataframes(result, desired_df), True)
 
     def test_no_matches(self):
         input_data = [['Latveria', 'Europe', 600, 1000000],
@@ -70,10 +72,7 @@ class BigCountriesTest(unittest.TestCase):
         input_df = input_dataframe(input_data)
 
         result = big_countries(input_df)
-        self.assert_equal_dataframes(result, desired_df)
-
-    def assert_equal_dataframes(self, df1, df2):
-        self.assertEqual(df1.equals(df2), True)
+        self.assertEqual(  is_equal_dataframes(result, desired_df), True)
 
 
 if __name__ == '__main__':

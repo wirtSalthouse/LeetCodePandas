@@ -1,9 +1,8 @@
 import unittest
 import pandas as pd
+from RecyclableAndLowFatProducts.recyclableAndLowfatProducts import find_products
 
-
-def find_products():
-    return -1
+from TestUtils.testUtils import is_equal_dataframes
 
 
 class MyTestCase(unittest.TestCase):
@@ -12,7 +11,7 @@ class MyTestCase(unittest.TestCase):
                               'recyclable': ['N', 'Y', 'Y', 'Y', 'N']})
         result = find_products(input)
         expected = pd.DataFrame({'product_id': [1, 3]})
-        self.assertEqual(result, expected)
+        self.assertEqual(is_equal_dataframes(result, expected), True)
 
 
 if __name__ == '__main__':
