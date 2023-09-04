@@ -7,6 +7,7 @@ def nth_highest_salary(employee: pd.DataFrame, n: int) -> pd.DataFrame:
 
 
 def nth_highest(salaries: list, ndx: int) -> int | None:
+    salaries = list(set(salaries))
     if ndx > len(salaries):
         return None
 
