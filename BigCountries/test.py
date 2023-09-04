@@ -14,8 +14,8 @@ def output_dataframe(data_list):
 
 
 class BigCountriesTest(unittest.TestCase):
-    def test_default_case(self):
 
+    def test_default_case(self):
         input_data = [['Afghanistan', 'Asia', 652230, 25500100],
                       ['Albania', 'Europe', 28748, 2831741, 12960000000],
                       ['Algeria', 'Africa', 2381741, 37100000, 188681000000],
@@ -40,7 +40,6 @@ class BigCountriesTest(unittest.TestCase):
         input_df = input_dataframe(input_data)
         output_df = output_dataframe(output_data)
         self.assert_equal_dataframes(big_countries(input_df), output_df)
-
 
     def assert_equal_dataframes(self, df1, df2):
         self.assertEqual(df1.equals(df2), True)

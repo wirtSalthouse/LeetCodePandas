@@ -5,11 +5,11 @@ def big_countries(world: pd.DataFrame) -> pd.DataFrame:
     """
     returns a pandas DataFrame
     :param world:
-    :return:
+    :return:new dataframe with schema of name, population and area
     """
-    output_data = [['Afghanistan', 25500100, 652230]]
 
-    # Create a DataFrame
+    answer = world.query('(area >= 3000000) | (population >= 25000000)')
     output_schema = ['name', 'population', 'area']
-    output_df = pd.DataFrame(output_data, columns=output_schema)
-    return output_df
+    answer = answer[output_schema]
+    print(answer)
+    return answer
