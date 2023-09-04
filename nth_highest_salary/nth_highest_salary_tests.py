@@ -26,5 +26,11 @@ class nthHighestSalaryTests(unittest.TestCase):
         result = nth_highest_salary(table_input, 1)
         self.assertEqual(is_equal_dataframes(result, desired_result), True)
 
+    def test_want_unique_salaries(self):
+        table_input = self.input_table([[1, 100], [2, 100]])
+        desired_result = pd.DataFrame({'getNthHighestSalary(2)': [None]})
+        result = nth_highest_salary(table_input, 2)
+        self.assertEqual(is_equal_dataframes(result, desired_result), True)
+
 if __name__ == '__main__':
     unittest.main()
