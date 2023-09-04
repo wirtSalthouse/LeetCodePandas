@@ -2,4 +2,5 @@ import pandas as pd
 
 
 def find_products(df):
-    return pd.DataFrame({'product_id': [1, 3]})
+    ans = df.query('(low_fats == \'Y\') & (recyclable == \'Y\')')
+    return pd.DataFrame({'product_id': ans['product_id'].tolist()})
