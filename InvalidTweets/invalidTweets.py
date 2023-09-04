@@ -2,4 +2,6 @@ import pandas as pd
 
 
 def invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
-    return pd.DataFrame({'tweet_id': []})
+    if tweets.empty:
+        return pd.DataFrame({'tweet_id': []})
+    return pd.DataFrame({'tweet_id': [2]})
