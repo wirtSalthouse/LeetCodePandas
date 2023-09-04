@@ -1,3 +1,4 @@
 import pandas as pd
 
-# define function here:
+def fix_names(users: pd.DataFrame) -> pd.DataFrame:
+    return pd.DataFrame()
