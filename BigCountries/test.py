@@ -47,7 +47,7 @@ class BigCountriesTest(unittest.TestCase):
         desired_result = output_dataframe(desired_output_data)
         self.assert_equal_dataframes(result, desired_result)
 
-    def single_entry_different_data(self):
+    def test_single_entry_different_data(self):
         input_data = [['Latveria', 'Europe', 600, 1000000],
                       ['Wakanda', 'Africa', 28748, 25000000, 1897900000],
                       ['Duckburg', 'Calisota', 10000, 78115, 261200000000000000000]]
@@ -61,7 +61,7 @@ class BigCountriesTest(unittest.TestCase):
 
         self.assert_equal_dataframes(result, desired_df)
 
-    def no_matches(self):
+    def test_no_matches(self):
         input_data = [['Latveria', 'Europe', 600, 1000000],
                       ['Wakanda', 'Africa', 28748, 25000, 1897900000],
                       ['Duckburg', 'Calisota', 10000, 78115, 261200000000000000000]]
