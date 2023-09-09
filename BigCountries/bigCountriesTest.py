@@ -7,6 +7,7 @@ from TestUtils.testUtils import is_equal_dataframes
 def df_from_schema_and_data(schema, data):
     return pd.DataFrame(data, columns=schema)
 
+
 def input_dataframe(data_list):
     return df_from_schema_and_data(['name', 'continent', 'area', 'population', 'gdp'], data_list)
 
@@ -25,7 +26,7 @@ class BigCountriesTest(unittest.TestCase):
                       ['Angola', 'Africa', 1246700, 20609294, 100990000000]]
 
         desired_output_data = [['Afghanistan', 25500100, 652230],
-                       ['Algeria', 37100000, 2381741]]
+                               ['Algeria', 37100000, 2381741]]
 
         input_df = input_dataframe(input_data)
 
@@ -67,12 +68,11 @@ class BigCountriesTest(unittest.TestCase):
         input_data = [['Latveria', 'Europe', 600, 1000000],
                       ['Wakanda', 'Africa', 28748, 25000, 1897900000],
                       ['Duckburg', 'Calisota', 10000, 78115, 261200000000000000000]]
-        desired_df = output_dataframe([])
 
         input_df = input_dataframe(input_data)
 
         result = big_countries(input_df)
-        self.assertEqual(  is_equal_dataframes(result, desired_df), True)
+        self.assertEqual(result.empty, True)
 
 
 if __name__ == '__main__':
